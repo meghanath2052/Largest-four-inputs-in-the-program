@@ -1,0 +1,45 @@
+/*A program to input the values and display the four largest inputs*/
+/*Written by Meghanath Reddy Chavva*/
+/*Hamiltionian Convention is used for naming the Variables*/
+#include<stdio.h>
+int main()
+{
+  int iI,iJ,iK;
+  int iArray[100000];
+  int iTemp;
+  printf("To exit the program, input a negative Value like -1\n");
+  for(iI=0;iI<100000;iI++)
+  {
+    printf("Enter the Input:\t");
+    scanf("%d",&iArray[iI]);
+    if(iArray[iI]<0)
+    {
+      break;
+    }
+    for(iJ=0;iJ<iI;iJ++)
+    {
+      for(iK=0;iK<iI-iJ;iK++)
+      {
+        if(iArray[iK]>iArray[iK+1])
+        {
+          iTemp=iArray[iK];
+          iArray[iK]=iArray[iK+1];
+          iArray[iK+1]=iTemp;
+        }
+      }
+    }
+    printf("Output:\t");
+    if(iI<4)
+    {
+      for(iJ=0;iJ<=iI;iJ++)
+      printf("%d\t",iArray[iJ]);
+    }
+    else
+    {
+      for(iJ=iI-3;iJ<=iI;iJ++)
+      printf("%d\t",iArray[iJ]);
+    }
+    printf("\n");
+  }
+return 0;
+}
